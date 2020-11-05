@@ -5,6 +5,7 @@
 const nums = [2,7,11,15,1]
 const target = 8
 
+
 // brute force : nested loop : time complexity : O(n**2)
 const solution1 = (nums, target) => {
     const length = nums.length;
@@ -35,6 +36,7 @@ const solution2 = (nums, target) => {
     return [];
 }
 
+
 // hash table holding values: dictionary and for loop : time complexity : O(n)
 const solution3 = (nums, target) => {
 	let map = {};
@@ -48,6 +50,7 @@ const solution3 = (nums, target) => {
     }
 };
 
+
 // hash table holding differs: dictionary and for loop with enumarate : time complexity : O(n)
 const solution4 = function(nums, target) {
     const map = {};
@@ -60,6 +63,8 @@ const solution4 = function(nums, target) {
         console.log(map);
     }
 };
+
+
 
 const result = solution3(nums, target);
 console.log(result);
