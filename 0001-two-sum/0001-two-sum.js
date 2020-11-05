@@ -7,14 +7,14 @@ const target = 8
 
 // brute force : nested loop : time complexity : O(n**2)
 const solution1 = (nums, target) => {
-    const length = nums.length
+    const length = nums.length;
     for(let i=0; i<length; i++){
-        diff = target - nums[i]
-        j = i + 1
+        diff = target - nums[i];
+        j = i + 1;
         while (j < length) {
             if (nums[j] == diff)
-                return([i, j])
-            j += 1
+                return([i, j]);
+            j += 1;
         }
     }
 } 
@@ -30,30 +30,36 @@ const solution2 = (nums, target) => {
             return [ map.get(diff) , i ];
         } 
         map.set(num, i);
-        console.log(map)
+        console.log(map);
     }
     return [];
-} 
+}
+
+// hash table holding values: dictionary and for loop : time complexity : O(n)
+const solution3 = (nums, target) => {
+	let map = {};
+    for(let i = 0; i < nums.length; i++) {
+        let diff = target - nums[i] ;
+        if (diff in map) {
+            return [map[diff], i];
+        }
+        map[nums[i]] = i;
+        console.log(map);
+    }
+};
 
 // hash table holding differs: dictionary and for loop with enumarate : time complexity : O(n)
-const solution3 = function(nums, target) {
+const solution4 = function(nums, target) {
     const map = {};
     for (let [i, num] of nums.entries()) {
         const diff = target - num;
         if(map[num] != null){
-            return [ map[num] , i]
+            return [ map[num] , i];
         }
-        map[diff] = i
-        console.log(map)
+        map[diff] = i;
+        console.log(map);
     }
 };
 
-const result1 = solution1(nums, target)
-console.log(result1)   
-
-const result2 = solution2(nums, target)
-console.log(result2)   
-
-const result3 = solution3(nums, target)
-console.log(result3)
-    
+const result = solution3(nums, target);
+console.log(result);
