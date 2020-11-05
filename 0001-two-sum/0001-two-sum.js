@@ -35,7 +35,7 @@ const solution2 = (nums, target) => {
     return [];
 } 
 
-// hash table holding differs: dictionary and for loop : time complexity : O(n)
+// hash table holding differs: dictionary and for loop with enumarate : time complexity : O(n)
 const solution3 = function(nums, target) {
     const map = {};
     for (let [i, num] of nums.entries()) {
